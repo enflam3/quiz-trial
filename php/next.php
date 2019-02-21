@@ -30,10 +30,9 @@ $_SESSION["active_quest"] = $quest_no;
 $_SESSION["active_quest_text"] = $quest_array[$quest_no-1];
 
 //Advance if quiest count less or equal to questions
-//Otherwise set mark as finished
 if ($quest_no-1 <= $count_quests)
 {
-
+ 
 //Check answer
 $sql = "SELECT correct FROM quests WHERE question='$quest_text'";
 $result = $conn->query($sql);
@@ -42,13 +41,11 @@ $answer = $row[0];
 
 if ($choice == $answer)
 {
-//Increment hero points by 10
+//Increment hero points by 10 etc...
 $points +=10;
 $quest_text = $quest_array[$quest_no-1];
 $choices = $choices_array[$quest_no-1];
- 
 $round = $quest_no-1;
-
 $outcome = "Bingo!";
   
 $sql = "UPDATE heroes SET points = '$points' WHERE name = '$name' AND test='$topic'";
@@ -68,7 +65,6 @@ $outcome = "Missed It!";
 $sql = "UPDATE heroes SET quest = '$round' WHERE name = '$name' AND test='$topic'";
 $result = $conn->query($sql);
 }
-
 }
 
 echo json_encode(array($choice,$answer,$quest_no,$count_quests,$quest_text,$choices,$points));
