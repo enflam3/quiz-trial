@@ -31,6 +31,7 @@
     $xcrud_heroes->column_cut(10,'test');
     $xcrud_heroes->column_cut(10,'quest');
     $xcrud_heroes->column_cut(10,'points');
+    $xcrud_heroes->order_by('points','desc');
     
     //Questions and choices
     $xcrud_quests = Xcrud::get_instance();
@@ -62,5 +63,6 @@
     $xcrud_lederboard->unset_print();
     $xcrud_lederboard->unset_pagination();
     $xcrud_lederboard->columns('name,test,points'); 
+    $xcrud_lederboard->order_by('points','desc');
 
 ?>
