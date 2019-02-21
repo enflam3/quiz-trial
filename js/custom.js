@@ -49,7 +49,7 @@ $('#prepare-form').on('submit', function(e) {
 
       //Get variables from PHP
       let result = $.parseJSON(response);
-      
+
       //if existing user
       let existing = result[7];
       console.log(existing);
@@ -57,49 +57,41 @@ $('#prepare-form').on('submit', function(e) {
       //Set progress variables
       let total = result[2];
       let now = result[3];
-      
-       if (existing === 'existing') {
+
+      if (existing === 'existing') {
         $('.quiz').collapse('hide');
         setTimeout(function() {
           $('.sorry').collapse('show');
         }, 600);
-      } else
-        {
-          
-        
-        
-
-
-
-      if (total == now) {
-        let total_points = total * 10;
-        let score = result[6];
-
-        //Clear choices
-        $('#choices-left').html('');
-        $('#choices-right').html('');
-
-        //Set quest info
-        $('#questing').html('');
-        $('#question').html('Thank You! <BR>Your score is: ' + score + ' of ' + total_points);
-
       } else {
 
-        $('#questing').html("Quest " + result[3] + " of " + result[2]);
-        $('#question').html(result[4]);
+        if (total == now) {
+          let total_points = total * 10;
+          let score = result[6];
 
-        //If Prepare form filled - call invoke to generate choices
-        invoke(result[5]);
-        
-        //Function to show quiz again after 600ms and advance progress
-      setTimeout(function() {
-        $('.quiz').collapse('show');
-        document.getElementById("progress").style.width = 100 / (total / (now)) + "%";
-      }, 600);
+          //Clear choices
+          $('#choices-left').html('');
+          $('#choices-right').html('');
 
+          //Set quest info
+          $('#questing').html('');
+          $('#question').html('Thank You! <BR>Your score is: ' + score + ' of ' + total_points);
+
+        } else {
+
+          $('#questing').html("Quest " + result[3] + " of " + result[2]);
+          $('#question').html(result[4]);
+
+          //If Prepare form filled - call invoke to generate choices
+          invoke(result[5]);
+
+          //Function to show quiz again after 600ms and advance progress
+          setTimeout(function() {
+            $('.quiz').collapse('show');
+            document.getElementById("progress").style.width = 100 / (total / (now)) + "%";
+          }, 600);
+        }
       }
-      
-}
     }
   });
 });
@@ -121,11 +113,11 @@ $(document).on("click", '.choice', function(e) {
       //Set progress variables
       let total = result[3];
       let now = result[2];
-      
+
       let clicked = result[0];
       let answer = result[1];
 
-      console.log(answer + ' :AvsC: ' + clicked);
+      console.log('Correct: ' + answer + ' Choice: ' + clicked);
 
       let finished = result[7];
 
@@ -158,7 +150,6 @@ $(document).on("click", '.choice', function(e) {
 
         //Generate new choices for current question
         invoke(result[5]);
-
       }
 
       //Function to show quiz again after 600ms and advance progress
@@ -166,7 +157,6 @@ $(document).on("click", '.choice', function(e) {
         $('.quiz').collapse('show');
         document.getElementById("progress").style.width = 100 / (total / (now - 1)) + "%";
       }, 600);
-
     }
   });
 });
@@ -179,22 +169,16 @@ $(document).on("click", '.login', function(e) {
     data: $('#admin-signin').serialize(),
     success: function(response) {
       console.log(response);
-
       if (response === 'seems legit') {
         //Clear choices
         $('#inputAdmin').val('');
         $('#inputPassword').val('');
-
         $('.admin').collapse('hide');
-
         setTimeout(function() {
           $('.crud').collapse('show');
         }, 600);
-
-
       }
     }
-
   });
 });
 
