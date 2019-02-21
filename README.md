@@ -15,7 +15,7 @@ Need Testing and polishing for finished project.
 
 //TO DO:
 
-  *General testing and debugging&nbsp;
-  *Add more info and error messages&nbsp;
-  *Database cleanup and indexing&nbsp;
+  *General testing and debugging <br>
+  *Add more info and error messages <br>
+  *Database cleanup and indexing <br>
   *structurize code more efficiently
