@@ -20,8 +20,6 @@ $quest_no = $_SESSION["active_quest"];
 $quest_text = $_SESSION["active_quest_text"];
 $choices_array = $_SESSION["active_quest_choices"];
 $quest_array = $_SESSION["quest_array"];
-//$finish = $_SESSION["finished"];
-
 
 //Get hero name & topic
 //escape special symbols for security (SQL injection)
