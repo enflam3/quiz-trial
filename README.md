@@ -15,10 +15,12 @@ Code commented and seperated in some kind of structure.
 
 Need Testing and polishing for finished project.
 
-//TO DO:
+// DONE
+~~Add UTF-8 character support
+
+// TO DO:
 
   *General testing and debugging <br>
   *Add more info and error messages <br>
-  *Database cleanup and indexing <br>
-  *structurize code more efficiently <br>
-  *Large data and responsive testing
+  *Large data and responsive testing <br>
+  *Refresh data on navigation change
