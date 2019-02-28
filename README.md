@@ -15,8 +15,8 @@ Code commented and seperated in some kind of structure.
 
 Need Testing and polishing for finished project.
 
-// DONE
-~~Add UTF-8 character support
+// DONE <br>
+~~Add UTF-8 character support~~
 
 // TO DO:
 
