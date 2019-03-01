@@ -10,7 +10,7 @@ if (isset($password) && $username === 'admin')
 {
   $letmein = "no access";
   
-  if ($password == "printful-trial")
+  if ($password == "XXX")
   {
     $letmein = 'seems legit';
   }
